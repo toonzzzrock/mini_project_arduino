@@ -4,8 +4,7 @@ const int RF  = 6,  RB  = 5;
 const int BLF = 8,  BLB = 9;
 const int BRF = 10, BRB = 11;
 
-const int S = 250;  // base speed
-const int T = 255;  // turn-in-place speed
+const int S = 200;  // base speed
 
 int isOpen = 0, angle = 0;
 
@@ -70,7 +69,7 @@ void loop() {
         int rightSpeed = constrain(base - delta, -255, 255);
 
         drive(leftSpeed, rightSpeed);
-        
+
       }
 
 

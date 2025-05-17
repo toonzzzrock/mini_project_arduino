@@ -8,10 +8,7 @@ const char* password = "144466ab";
 // — UDP settings
 WiFiUDP udp;
 const unsigned int localUdpPort = 8888;
-char incomingPacket[255];
-
-// no SoftwareSerial: use hardware Serial1 (TX only) for Arduino
-// wiring: NodeMCU GPIO2 (Serial1 TX) → Arduino RX (pin 0)
+char incomingPacket[64];
 
 void setup() {
   Serial.begin(9600);       // debug over USB
@@ -44,9 +41,9 @@ void loop() {
 
       Serial.println("Received UDP: " + msg);
       // echo back confirmation
-      udp.beginPacket(udp.remoteIP(), udp.remotePort());
-      udp.write("receive");
-      udp.endPacket();
+      // udp.beginPacket(udp.remoteIP(), udp.remotePort());
+      // udp.write("receive");
+      // udp.endPacket();
 
       // forward raw payload to Arduino
       Serial1.println(msg);
